@@ -10,7 +10,13 @@ import SwiftUI
 @main
 struct EcommerceApp: App {
     var body: some Scene {
+        //Log Status
+ 
         WindowGroup {
+            
+
+            
+            
             OnBoardingPage()
         }
     }
