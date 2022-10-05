@@ -9,15 +9,9 @@ import SwiftUI
 
 @main
 struct EcommerceApp: App {
-    var body: some Scene {
-        //Log Status
- 
+    var body: some Scene { 
         WindowGroup {
-            
-
-            
-            
-            OnBoardingPage()
+            ContentView()
         }
     }
 }

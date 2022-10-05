@@ -5,7 +5,7 @@
 //  Created by JunHyuk Lim on 4/10/2022.
 //
 
-import Foundation
+import SwiftUI
 
 class LoginPageViewModel : ObservableObject {
     
@@ -19,12 +19,19 @@ class LoginPageViewModel : ObservableObject {
     @Published var reEnterPassword : String = ""
     @Published var showReEnterPassword : Bool = false
     
+    //Log Status
+    @AppStorage("logStatus") var logStatus: Bool = false
+    
     func login() {
-        
+        withAnimation {
+            logStatus = true
+        }
     }
     
     func register() {
-        
+        withAnimation {
+            logStatus = true
+        }
     }
     
     func forgotPassword() {
