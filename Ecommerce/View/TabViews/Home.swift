@@ -20,19 +20,22 @@ struct Home: View {
             VStack(spacing: 15){
                 
                 //MARK: - SEARCH BAR
-                HStack(spacing: 15) {
-                    Image(systemName: "magnifyingglass")
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                    
-                    TextField("Search", text: .constant(""))
-                        .disabled(true)
-                } //: HSTACK
-                .padding(.vertical, 12)
-                .padding(.horizontal)
-                .background(Capsule().strokeBorder(Color.gray, lineWidth: 2))
+                ZStack{
+                    if homeViewModel.searchActivated{
+                        searchBar()
+                    } else {
+                        searchBar()
+                            .matchedGeometryEffect(id: "SEARCHBAR", in: animation)
+                    }
+                }
                 .frame(width: getRect().width / 1.6)
                 .padding(.horizontal, 25)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    withAnimation(.easeOut) {
+                        homeViewModel.searchActivated = true
+                    }
+                }
                 
                 //MARK: - TITLE
                 Text("Order online\ncollect in store")
@@ -96,6 +99,14 @@ struct Home: View {
         } content: {
             MoreProductsView()
         }
+        //Displaying Search View
+        .overlay(
+            ZStack{
+                if homeViewModel.searchActivated {
+                    SearchView(animation: animation)
+                        .environmentObject(homeViewModel)
+                }
+            })
 
     }
     
@@ -129,6 +140,20 @@ struct Home: View {
                     , alignment: .bottom)
         } //: BUTTON
     } //: VIEWBUILDER
+    @ViewBuilder
+    func searchBar()->some View {
+        HStack(spacing: 15) {
+            Image(systemName: "magnifyingglass")
+                .font(.title2)
+                .foregroundColor(.gray)
+            
+            TextField("Search", text: .constant(""))
+                .disabled(true)
+        } //: HSTACK
+        .padding(.vertical, 12)
+        .padding(.horizontal)
+        .background(Capsule().strokeBorder(Color.gray, lineWidth: 2))
+    }
     
     @ViewBuilder
     func ProductCardView(product: Product)-> some View{

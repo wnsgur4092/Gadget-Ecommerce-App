@@ -13,6 +13,9 @@
 		BF19126728EDAB7100EF4C19 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF19126628EDAB7100EF4C19 /* HomeViewModel.swift */; };
 		BF19126928EDB4DC00EF4C19 /* MoreProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF19126828EDB4DC00EF4C19 /* MoreProductsView.swift */; };
 		BF19126B28EDB6DA00EF4C19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF19126A28EDB6DA00EF4C19 /* ContentView.swift */; };
+		BF19126D28EFE63700EF4C19 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF19126C28EFE63700EF4C19 /* SearchView.swift */; };
+		BF19126F28EFEDBD00EF4C19 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF19126E28EFEDBD00EF4C19 /* StaggeredGrid.swift */; };
+		BF87197328F04FB20043000D /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF87197228F04FB20043000D /* ProfilePage.swift */; };
 		BF9C6CD328EC34D1003E3DA3 /* EcommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C6CD228EC34D1003E3DA3 /* EcommerceApp.swift */; };
 		BF9C6CD728EC34D2003E3DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9C6CD628EC34D2003E3DA3 /* Assets.xcassets */; };
 		BF9C6CDA28EC34D2003E3DA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9C6CD928EC34D2003E3DA3 /* Preview Assets.xcassets */; };
@@ -52,6 +55,9 @@
 		BF19126628EDAB7100EF4C19 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BF19126828EDB4DC00EF4C19 /* MoreProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProductsView.swift; sourceTree = "<group>"; };
 		BF19126A28EDB6DA00EF4C19 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../../../../Downloads/EcommerceAppKit 3/Shared/ContentView.swift"; sourceTree = "<group>"; };
+		BF19126C28EFE63700EF4C19 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		BF19126E28EFEDBD00EF4C19 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
+		BF87197228F04FB20043000D /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		BF9C6CCF28EC34D1003E3DA3 /* Ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9C6CD228EC34D1003E3DA3 /* EcommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcommerceApp.swift; sourceTree = "<group>"; };
 		BF9C6CD628EC34D2003E3DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				BF19126128EDA7F200EF4C19 /* Home.swift */,
+				BF87197228F04FB20043000D /* ProfilePage.swift */,
 			);
 			path = TabViews;
 			sourceTree = "<group>";
@@ -211,6 +218,8 @@
 				BF9C6D1A28EC4076003E3DA3 /* CustomCorners.swift */,
 				BF19125C28EDA48300EF4C19 /* MainPage.swift */,
 				BF19126828EDB4DC00EF4C19 /* MoreProductsView.swift */,
+				BF19126C28EFE63700EF4C19 /* SearchView.swift */,
+				BF19126E28EFEDBD00EF4C19 /* StaggeredGrid.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,11 +380,14 @@
 				BF9C6D1228EC3A48003E3DA3 /* LoginPage.swift in Sources */,
 				BF19126B28EDB6DA00EF4C19 /* ContentView.swift in Sources */,
 				BF19126728EDAB7100EF4C19 /* HomeViewModel.swift in Sources */,
+				BF19126F28EFEDBD00EF4C19 /* StaggeredGrid.swift in Sources */,
 				BF19126528EDAA4200EF4C19 /* Product.swift in Sources */,
+				BF19126D28EFE63700EF4C19 /* SearchView.swift in Sources */,
 				BF9C6D1B28EC4076003E3DA3 /* CustomCorners.swift in Sources */,
 				BF9C6D0928EC375F003E3DA3 /* OnBoardingPage.swift in Sources */,
 				BF9C6D1928EC3A8A003E3DA3 /* LoginPageViewModel.swift in Sources */,
 				BF9C6CD328EC34D1003E3DA3 /* EcommerceApp.swift in Sources */,
+				BF87197328F04FB20043000D /* ProfilePage.swift in Sources */,
 				BF19125D28EDA48300EF4C19 /* MainPage.swift in Sources */,
 				BF19126228EDA7F200EF4C19 /* Home.swift in Sources */,
 				BF19126928EDB4DC00EF4C19 /* MoreProductsView.swift in Sources */,
