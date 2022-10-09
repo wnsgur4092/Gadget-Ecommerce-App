@@ -10,7 +10,9 @@ import SwiftUI
 struct Home: View {
     //MARK: - PROPERTIES
     @StateObject var homeViewModel : HomeViewModel = HomeViewModel()
-    @Namespace var animation
+    var animation : Namespace.ID
+    
+    @EnvironmentObject var sharedData : SharedDataModel
     
     let customFont = "Raleway-Regular"
     
@@ -159,12 +161,23 @@ struct Home: View {
     func ProductCardView(product: Product)-> some View{
         
         VStack(spacing: 10) {
-            Image(product.productImage)
-                .resizable()
-                .scaledToFit()
-                .frame(width: getRect().width / 2.5, height: getRect().width / 2.5)
-                .offset(y: -80)
-                .padding(.bottom, -80)
+
+            ZStack{
+                if sharedData.showDetailProduct {
+                    Image(product.productImage)
+                        .resizable()
+                        .scaledToFit()
+                        .opacity(0)
+                } else {
+                    Image(product.productImage)
+                        .resizable()
+                        .scaledToFit()
+                        .matchedGeometryEffect(id: "\(product.id)IMAGE", in: animation)
+                }
+            }
+            .frame(width: getRect().width / 2.5, height: getRect().width / 2.5)
+            .offset(y: -80)
+            .padding(.bottom, -80)
             
             Text(product.title)
                 .font(.custom(customFont, size: 18))
@@ -187,6 +200,12 @@ struct Home: View {
             Color.white
                 .cornerRadius(25)
         )
+        .onTapGesture {
+            withAnimation(.easeInOut) {
+                sharedData.detailProduct = product
+                sharedData.showDetailProduct = true
+            }
+        }
     }
     
 }
@@ -201,6 +220,7 @@ extension View{
 //MARK: - PREVIEW
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+//        Home()
+        MainPage()
     }
 }

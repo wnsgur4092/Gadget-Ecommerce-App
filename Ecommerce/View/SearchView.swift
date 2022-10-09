@@ -11,6 +11,8 @@ struct SearchView: View {
     //MARK: - PROPERTIES
     var animation : Namespace.ID
     
+    @EnvironmentObject var sharedData : SharedDataModel
+    
     @EnvironmentObject var homeViewModel : HomeViewModel
     
     @FocusState var startTF : Bool
@@ -30,6 +32,8 @@ struct SearchView: View {
                         homeViewModel.searchActivated = false
                     }
                     homeViewModel.searchText = ""
+                    // Resetting
+                    sharedData.fromSearchPage  = false
                 } label: {
                     Image(systemName: "arrow.left")
                         .font(.title2)
@@ -118,11 +122,22 @@ struct SearchView: View {
     func ProductCardView(product: Product)-> some View{
         
         VStack(spacing: 10) {
-            Image(product.productImage)
-                .resizable()
-                .scaledToFit()
-                .offset(y: -50)
-                .padding(.bottom, -50)
+            ZStack{
+                if sharedData.showDetailProduct {
+                    Image(product.productImage)
+                        .resizable()
+                        .scaledToFit()
+                        .opacity(0)
+                } else {
+                    Image(product.productImage)
+                        .resizable()
+                        .scaledToFit()
+                        .matchedGeometryEffect(id: "\(product.id)SEARCH", in: animation)
+                }
+            }
+            
+            .offset(y: -50)
+            .padding(.bottom, -50)
             
             Text(product.title)
                 .font(.custom(customFont, size: 18))
@@ -146,6 +161,13 @@ struct SearchView: View {
                 .cornerRadius(25)
         )
         .padding(.top, 50)
+        .onTapGesture {
+            withAnimation(.easeInOut) {
+                sharedData.fromSearchPage = true
+                sharedData.detailProduct = product
+                sharedData.showDetailProduct = true
+            }
+        }
     }
 }
 
@@ -154,6 +176,6 @@ struct SearchView: View {
 //MARK: - PREVIEW
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        MainPage()
     }
 }
